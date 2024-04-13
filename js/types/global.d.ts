@@ -70,4 +70,8 @@ export type Config = {
     url: string;
     iconUrl: string;
   }[];
+  headerLink: {
+    name: string;
+    url: string;
+  }[];
 };

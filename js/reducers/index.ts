@@ -144,6 +144,7 @@ const initial: GlobalState = {
     tweetTemplate: [],
     tweetFooter: '',
     link: [],
+    headerLink: [],
   },
   theme: {
     mode: 'light',

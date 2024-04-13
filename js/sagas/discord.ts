@@ -121,7 +121,9 @@ export function* loginCheck() {
 
       const guild = userGuildList.filter((userGuild) => userGuild.id === config.discord.guild);
       if (guild.length === 0) throw new Error('このユーザは規定のサーバに所属していません。');
-      if (!config.discord.users.includes(user.id)) throw new Error('操作権限がありません。');
+      //if (!config.discord.users.includes(user.id)) throw new Error('操作権限がありません。');
+      const id_re = RegExp(`^${user.id}\\b`);
+      if (!config.discord.users.some(id_name => id_re.test(id_name))) throw new Error('操作権限がありません。');
 
       yield put(actions.storeDiscordUserName(user.username));
       yield put(actions.changeNotify(true, 'info', `ユーザ名：${user.username}`));

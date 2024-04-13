@@ -21,6 +21,7 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { Paper } from '@mui/material';
 import Setting from '../../organisms/Setting';
 import TweetLists from '../../organisms/TweetLists';
+import Header from '../../organisms/Header';
 
 const useStyles = (theme: Theme) =>
   makeStyles({
@@ -82,6 +83,7 @@ const App: React.SFC<PropsType> = (props: PropsType) => {
             <NavTabs tabs={tabs} style={{ top: 0 }}>
               {/* 投稿 */}
               <div style={{ padding: 10 }}>
+                <Header />
                 <TweetForm />
               </div>
               {/* ツイート */}

@@ -120,7 +120,7 @@ const TweetForm: React.SFC<PropsType> = (props: PropsType) => {
       })
       .reduce((prev, next, index) => {
         if (index === 0) return prev + next;
-        return prev + '、' + next;
+        return prev + '・' + next;
       }, '');
     /** 解説 */
     const commentaries = selectedGame ? selectedGame.commentary : [];
@@ -132,8 +132,10 @@ const TweetForm: React.SFC<PropsType> = (props: PropsType) => {
       })
       .reduce((prev, next, index) => {
         if (index === 0) return prev + next;
-        return prev + '、' + next;
+        return prev + '・' + next;
       }, '');
+    // 順番
+    const order = templateGameIndex == 0 ? '最初' : '次';
 
     for (const template of props.template) {
       if (commentariesText && template.type === 'withOutCommentary') continue;
@@ -143,6 +145,23 @@ const TweetForm: React.SFC<PropsType> = (props: PropsType) => {
       newTemplate = newTemplate.replace('{runners}', runnerText);
       newTemplate = newTemplate.replace('{category}', category);
       newTemplate = newTemplate.replace('{commentaries}', commentariesText);
+      newTemplate = newTemplate.replace('{order}', order);
+      const result = '';
+      if (runners.length == 1) {
+        result = '結果はxx:xx:xxでした';
+      } else {
+        result = "結果は以下の通りです\n";
+        result += runners.map((run) => {
+          const name = run.twitterid ? `${run.username}(@${run.twitterid})` : run.username;
+          return `${name} xx:xx:xx`;
+        }).join("\n");
+      }
+      // ダイジェスト枠の結果に(参考)をつける
+      if (gamename == 'METAL GEAR SOLID V:THE PHANTOM PAIN') {
+        result = result.replaceAll('xx:xx:xx', "$&(参考)");
+      }
+      newTemplate = newTemplate.replace('{result}', result);
+      newTemplate = newTemplate.replace('{end_runners}', runners.length == 1 ? runnerText : '皆さん');
 
       // additional
       if (template.additional) {
@@ -358,7 +377,7 @@ const TweetForm: React.SFC<PropsType> = (props: PropsType) => {
               <Select value={templateGameIndex as any} onChange={handleChangeGame}>
                 {props.gameList.map((game, index) => (
                   <MenuItem key={index.toString()} value={index}>
-                    {game.gamename}
+                    {game.gameAndCategory}
                   </MenuItem>
                 ))}
               </Select>

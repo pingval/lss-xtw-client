@@ -1,7 +1,7 @@
 {
-  "short_name": "RiJTwi",
-  "name": "RTA in Japan Twitter Client",
-  "icons": [
+  "short_name": "LSSXTw",
+  "name": "Long Speedrun Summit X(Twitter) Client",
+  "// icons": [
     {
       "src": "favicon.ico",
       "sizes": "32x32",

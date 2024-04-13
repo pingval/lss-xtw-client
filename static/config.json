@@ -21,67 +21,57 @@
   },
   "tweetTemplate": [
     {
-      "title": "次のゲーム",
+      "title": "ゲーム開始 - 一言(任意)・画像(任意)",
       "type": "withCommentary",
-      "text": "次のタイムアタックは『{game}』\nカテゴリーは「{category}」\n走者は{runners}です。\n解説は{commentaries}です。"
+      "text":
+"{order}のゲームは『{game}』\nカテゴリーは「{category}」\n走者は{runners}\n解説は{commentaries}です"
     },
     {
-      "title": "ゲーム終了 クリアタイム有",
+      "title": "ゲーム開始 - 一言(任意)・画像(任意)",
+      "type": "withOutCommentary",
+      "text": "{order}のゲームは『{game}』\nカテゴリーは「{category}」\n走者は{runners}です"
+    },
+    {
+      "title": "ゲーム終了 - 一言(任意)・画像(必須！)",
       "type": "withCommentary",
-      "text": "『{game}』のカテゴリー「{category}」RTA\n走者の{runners}、解説の{commentaries}、お疲れさまでした。\nクリアタイムはxx:xx:xxでした。"
+      "text": "『{game}』の「{category}」\n{result}\n走者の{end_runners}、解説の{commentaries}、お疲れ様でした"
     },
     {
-      "title": "ゲーム終了 クリアタイム無",
-      "type": "withCommentary",
-      "text": "『{game}』のカテゴリー「{category}」RTA\n走者の{runners}、解説の{commentaries}、お疲れさまでした。"
-    },
-    {
-      "title": "次のゲーム",
+      "title": "ゲーム終了 - 一言(任意)・画像(必須！)",
       "type": "withOutCommentary",
-      "text": "次のタイムアタックは『{game}』\nカテゴリーは「{category}」\n走者は{runners}です。"
+      "text": "『{game}』の「{category}」\n{result}\n走者の{end_runners}、お疲れ様でした"
     },
     {
-      "title": "ゲーム終了 クリアタイム有",
-      "type": "withOutCommentary",
-      "text": "『{game}』のカテゴリー「{category}」RTA\n走者の{runners}お疲れさまでした。\nクリアタイムはxx:xx:xxでした。"
-    },
-    {
-      "title": "ゲーム終了 クリアタイム無",
-      "type": "withOutCommentary",
-      "text": "『{game}』のカテゴリー「{category}」RTA\n走者の{runners}お疲れさまでした。"
-    },
-    {
-      "title": "ゲーム終了 クリアタイムだけ別でツイート",
+      "title": "ゲーム中 - 一言(任意)・画像/動画/本文末尾にクリップURL(任意)",
       "type": "common",
-      "text": "『{game}』\nクリアタイムは次の通りです\n",
-      "additional": "{run} xx:xx:xx"
-    },
-    {
-      "title": "ゲーム中",
-      "type": "common",
-      "text": "現在のタイムアタックは『{game}』\n\n"
+      "text": "現在『{game}』の「{category}」が進行中です\n\n"
     }
   ],
-  "tweetFooter": "配信はこちらから⇒https://www.twitch.tv/rtainjapan\n#RTAinJapan",
+  "tweetFooter": "▼配信チャンネル\nhttps://www.twitch.tv/longspeedrunsummit\n#LongSpeedrun",
+  "headerLink": [
+    {
+      "name": "LSSC1 Twitter管理ボランティアマニュアル",
+      "url": ""
+    },
+    {
+      "name": "LSSC1 Twitter投稿内容一覧",
+      "url": ""
+    }
+  ],
   "link": [
     {
-      "name": "RTA in Japan",
-      "url": "https://rtain.jp/",
-      "iconUrl": "./images/rtainjapan-icon.png"
+      "name": "LongSpeedrunSummit X(Twitter)",
+      "url": "https://twitter.com/LongSpeedrun",
+      "iconUrl": "./images/x-icon.svg"
     },
     {
-      "name": "RTA in Japan Twitter",
-      "url": "https://twitter.com/rtainjapan",
-      "iconUrl": "./images/twitter-icon.png"
-    },
-    {
-      "name": "RTA in Japan Twitch",
-      "url": "https://www.twitch.tv/rtainjapan",
+      "name": "LongSpeedrunSummit Twitch",
+      "url": "https://www.twitch.tv/longspeedrunsummit",
       "iconUrl": "./images/twitch-icon.png"
     },
     {
-      "name": "RTA in Japan Discord",
-      "url": "https://discord.gg/dqpB8y6",
+      "name": "LongSpeedrunSummit Discord",
+      "url": "https://discord.gg/C3FMUJ9MUB",
       "iconUrl": "./images/discord-icon.png"
     }
   ]
