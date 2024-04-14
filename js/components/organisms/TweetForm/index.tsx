@@ -156,10 +156,6 @@ const TweetForm: React.SFC<PropsType> = (props: PropsType) => {
           return `${name} xx:xx:xx`;
         }).join("\n");
       }
-      // ダイジェスト枠の結果に(参考)をつける
-      if (gamename == 'METAL GEAR SOLID V:THE PHANTOM PAIN') {
-        result = result.replaceAll('xx:xx:xx', "$&(参考)");
-      }
       newTemplate = newTemplate.replace('{result}', result);
       newTemplate = newTemplate.replace('{end_runners}', runners.length == 1 ? runnerText : '皆さん');
 
