@@ -151,11 +151,16 @@ const TweetForm: React.SFC<PropsType> = (props: PropsType) => {
         result = '結果はxx:xx:xxでした';
       } else {
         result = "結果は以下の通りです\n";
-        result += runners.map((run) => {
-          const name = run.twitterid ? `${run.username}(@${run.twitterid})` : run.username;
-          return `${name} xx:xx:xx`;
+        result += runners.map((runner) => {
+          let text = `${runner.username}さん`;
+          if (runner.twitterid) text += `(@${runner.twitterid})`;
+          return `${text} xx:xx:xx`;
         }).join("\n");
       }
+      // ダイジェスト枠の結果に(参考)をつける
+      // if (gamename == 'METAL GEAR SOLID V:THE PHANTOM PAIN') {
+      //   result = result.replaceAll('xx:xx:xx', "$&(参考)");
+      // }
       newTemplate = newTemplate.replace('{result}', result);
       newTemplate = newTemplate.replace('{end_runners}', runners.length == 1 ? runnerText : '皆さん');
 
