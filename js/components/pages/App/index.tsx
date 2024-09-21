@@ -77,7 +77,7 @@ const App: React.SFC<PropsType> = (props: PropsType) => {
   return (
     <ThemeProvider theme={props.theme.theme}>
       <Paper className={classes.root}>
-        <div className={classes.content}>
+        <div className={classes.content} style={{ zIndex: 100 }}>
           <div className={'SW-update-dialog'} style={{ textAlign: 'center', zIndex: 10000 }} />
           {props.discord.username ? (
             <NavTabs tabs={tabs} style={{ top: 0 }}>
